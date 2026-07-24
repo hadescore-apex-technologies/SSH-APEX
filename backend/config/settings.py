@@ -86,7 +86,7 @@ MONGO_DB_NAME = os.environ.get('MONGO_DB_NAME') or config('MONGO_DB_NAME', defau
 DATABASES = {
     'default': {
         'ENGINE': 'django_mongodb_backend',
-        'NAME': MONGO_DB_NAME,
+        'NAME': 'APEX',
         'CLIENT': {
             'host': "mongodb+srv://hadescoreapextechnologies_db_user:Hadescore.com@cluster0.lkfkjsj.mongodb.net/?appName=Cluster0",
         }
