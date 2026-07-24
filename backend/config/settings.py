@@ -84,11 +84,11 @@ MONGO_URI = os.environ.get('MONGO_URI') or config('MONGO_URI', default='mongodb:
 MONGO_DB_NAME = os.environ.get('MONGO_DB_NAME') or config('MONGO_DB_NAME', default='hadescore_db')
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django_mongodb_backend',
-        'NAME': MONGO_DB_NAME,
-        'CLIENT': {
-            'host': MONGO_URI,
+    "default": {
+        "ENGINE": "django_mongodb_backend",
+        "NAME": "hadescoreapextechnologies_db_user",
+        "CLIENT": {
+            "host": "mongodb+srv://hadescoreapextechnologies_db_user:<db_password>@cluster0.lkfkjsj.mongodb.net/?appName=Cluster0",
         }
     }
 }
