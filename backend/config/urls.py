@@ -19,7 +19,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.http import JsonResponse
+
+def home_health_check(request):
+    return JsonResponse({"status": "APEX Backend API is running"})
+
 urlpatterns = [
+    path('', home_health_check),
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
 ]
