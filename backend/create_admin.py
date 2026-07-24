@@ -1,4 +1,6 @@
 import os
+mu = os.environ.get('MONGO_URI', 'NOT_FOUND')
+raise ValueError(f"CRITICAL DEBUG - MONGO_URI is: {repr(mu)}")
 # pyrefly: ignore [missing-import]
 import django
 
