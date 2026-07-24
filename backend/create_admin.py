@@ -1,9 +1,11 @@
 import os
+# pyrefly: ignore [missing-import]
 import django
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 django.setup()
 
+# pyrefly: ignore [missing-import]
 from django.contrib.auth.models import User
 
 # Create a default admin user if one doesn't exist
