@@ -2,6 +2,7 @@ import os
 # pyrefly: ignore [missing-import]
 import django
 
+print("DEBUG: Available environment variables during build:", list(os.environ.keys()))
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 django.setup()
 
