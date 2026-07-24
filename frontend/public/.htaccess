@@ -45,18 +45,16 @@
 # Force HTTPS
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteBase /
   
-  # Remove trailing slash
+  # If the requested file or directory exists, serve it directly
+  RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} (.+)/$
-  RewriteRule ^ %1 [R=301,L]
   
-  # Remove .html extension
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  # Otherwise, rewrite all requests to index.html
+  RewriteRule . /index.html [L]
 </IfModule>
+
 
 # ETags for caching
 FileETag MTime Size
