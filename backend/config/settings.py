@@ -79,8 +79,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # DATABASE — MongoDB
 # ──────────────────────────────────────────────────────────────────
 
-MONGO_URI = config('MONGO_URI', default='mongodb://localhost:27017')
-MONGO_DB_NAME = config('MONGO_DB_NAME', default='hadescore_db')
+# Fetch from os.environ first (for Render) to avoid python-decouple cache/bugs
+MONGO_URI = os.environ.get('MONGO_URI') or config('MONGO_URI', default='mongodb://localhost:27017')
+MONGO_DB_NAME = os.environ.get('MONGO_DB_NAME') or config('MONGO_DB_NAME', default='hadescore_db')
 
 DATABASES = {
     'default': {
