@@ -1,4 +1,6 @@
 import os
+mu = os.environ.get('MONGO_URI', 'NOT_FOUND')
+print("DEBUG MONGO_URI VALUE:", repr(mu.replace('oPxvc3Sy6R69w6X5', '***') if 'oPxvc3Sy6R69w6X5' in mu else mu))
 # pyrefly: ignore [missing-import]
 import django
 
