@@ -6,7 +6,7 @@
 
   <!-- Home Page -->
   <url>
-    <loc>https://hadescoreapex.com/</loc>
+    <loc>https://apex.hadescoretech.com/</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- About Page -->
   <url>
-    <loc>https://hadescoreapex.com/about</loc>
+    <loc>https://apex.hadescoretech.com/about</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -22,7 +22,7 @@
 
   <!-- Services Page -->
   <url>
-    <loc>https://hadescoreapex.com/services</loc>
+    <loc>https://apex.hadescoretech.com/services</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -30,7 +30,7 @@
 
   <!-- Solutions Page -->
   <url>
-    <loc>https://hadescoreapex.com/solutions</loc>
+    <loc>https://apex.hadescoretech.com/solutions</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -38,7 +38,7 @@
 
   <!-- Products Page -->
   <url>
-    <loc>https://hadescoreapex.com/products</loc>
+    <loc>https://apex.hadescoretech.com/products</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -46,7 +46,7 @@
 
   <!-- Apex Page -->
   <url>
-    <loc>https://hadescoreapex.com/apex</loc>
+    <loc>https://apex.hadescoretech.com/apex</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -54,7 +54,7 @@
 
   <!-- Learning Hub Page -->
   <url>
-    <loc>https://hadescoreapex.com/learninghub</loc>
+    <loc>https://apex.hadescoretech.com/learninghub</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -62,7 +62,7 @@
 
   <!-- Careers Page -->
   <url>
-    <loc>https://hadescoreapex.com/careers</loc>
+    <loc>https://apex.hadescoretech.com/careers</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -70,7 +70,7 @@
 
   <!-- Blog Page -->
   <url>
-    <loc>https://hadescoreapex.com/blog</loc>
+    <loc>https://apex.hadescoretech.com/blog</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -78,7 +78,7 @@
 
   <!-- Contact Page -->
   <url>
-    <loc>https://hadescoreapex.com/contact</loc>
+    <loc>https://apex.hadescoretech.com/contact</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -86,7 +86,7 @@
 
   <!-- Start Project Page -->
   <url>
-    <loc>https://hadescoreapex.com/start-project</loc>
+    <loc>https://apex.hadescoretech.com/start-project</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -94,7 +94,7 @@
 
   <!-- Privacy Policy -->
   <url>
-    <loc>https://hadescoreapex.com/privacy</loc>
+    <loc>https://apex.hadescoretech.com/privacy</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -102,7 +102,7 @@
 
   <!-- Terms & Conditions -->
   <url>
-    <loc>https://hadescoreapex.com/terms</loc>
+    <loc>https://apex.hadescoretech.com/terms</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -110,7 +110,7 @@
 
   <!-- Security Page -->
   <url>
-    <loc>https://hadescoreapex.com/security</loc>
+    <loc>https://apex.hadescoretech.com/security</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -118,7 +118,7 @@
 
   <!-- Verification Page -->
   <url>
-    <loc>https://hadescoreapex.com/verification</loc>
+    <loc>https://apex.hadescoretech.com/verification</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
