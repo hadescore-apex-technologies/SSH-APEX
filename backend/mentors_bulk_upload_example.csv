@@ -1,0 +1,9 @@
+name,role,company,exp,tag,email,order,is_active
+John Doe,Senior AI Engineer,Google,10 yrs,AI / ML,john@example.com,1,true
+Jane Smith,Lead Fullstack Developer,Microsoft,8 yrs,Fullstack,jane@example.com,2,true
+Mike Johnson,Cybersecurity Expert,Amazon,12 yrs,Cyber,mike@example.com,3,true
+Sarah Williams,Data Scientist,Meta,7 yrs,Data,sarah@example.com,4,true
+David Brown,Cloud Architect,AWS,9 yrs,Cloud,david@example.com,5,true
+Emily Davis,Robotics Engineer,Tesla,6 yrs,Robotics,emily@example.com,6,true
+Chris Wilson,UX/UI Designer,Adobe,5 yrs,Design,chris@example.com,7,true
+Alex Martinez,Digital Marketing Manager,HubSpot,8 yrs,Marketing,alex@example.com,8,true

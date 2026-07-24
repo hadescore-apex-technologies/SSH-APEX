@@ -1,0 +1,25 @@
+# Robots.txt for Hadescore Apex & Technologies
+# Allow all crawlers to access all content
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://hadescoreapex.com/sitemap.xml
+
+# Specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Disallow admin and private areas (if any backend paths need protection)
+User-agent: *
+Disallow: /admin/
+Disallow: /api/admin/
+Disallow: /*/admin
+
+# Crawl-delay for aggressive crawlers (optional)
+User-agent: *
+Crawl-delay: 0
