@@ -1,11 +1,16 @@
 export const getBackendUrl = (path = '') => {
+  if (!path) return '';
+  if (typeof path === 'string' && (path.startsWith('data:') || path.startsWith('http://') || path.startsWith('https://'))) {
+    return path;
+  }
   const base = import.meta.env.VITE_API_URL
     ? import.meta.env.VITE_API_URL.replace(/\/$/, '')
     : (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
         ? 'http://127.0.0.1:8000'
         : 'https://ssh-apex.onrender.com');
 
-  return `${base}${path}`;
+  const formattedPath = path.startsWith('/') ? path : `/${path}`;
+  return `${base}${formattedPath}`;
 };
 
 // Fetch with cache-busting

@@ -45,23 +45,41 @@ class SolutionSerializer(serializers.ModelSerializer):
         return obj.get_tags_list()
 
 
+import base64
+
+def convert_file_to_base64(file_obj):
+    if not file_obj:
+        return None
+    if isinstance(file_obj, str):
+        return file_obj
+    try:
+        content = file_obj.read()
+        mime = getattr(file_obj, 'content_type', 'image/jpeg') or 'image/jpeg'
+        encoded = base64.b64encode(content).decode('utf-8')
+        return f"data:{mime};base64,{encoded}"
+    except Exception:
+        return str(file_obj)
+
 class ExecutiveLeaderSerializer(serializers.ModelSerializer):
     id = ObjectIdField(read_only=True)
+    image = serializers.CharField(required=False, allow_null=True, allow_blank=True)
 
     class Meta:
         model = ExecutiveLeader
         fields = '__all__'
         read_only_fields = ['id', 'created_at']
 
-    def validate_image(self, value):
-        if value:
-            if value.size > 2 * 1024 * 1024:
-                raise serializers.ValidationError("Leader image size must be under 2MB.")
-            import os
-            ext = os.path.splitext(value.name)[1].lower()
-            if ext not in ['.jpg', '.jpeg', '.png', '.webp']:
-                raise serializers.ValidationError("Only JPG, JPEG, PNG, and WEBP images are allowed.")
-        return value
+    def create(self, validated_data):
+        image_val = self.initial_data.get('image') or validated_data.get('image')
+        if image_val and not isinstance(image_val, str):
+            validated_data['image'] = convert_file_to_base64(image_val)
+        return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        image_val = self.initial_data.get('image') or validated_data.get('image')
+        if image_val and not isinstance(image_val, str):
+            validated_data['image'] = convert_file_to_base64(image_val)
+        return super().update(instance, validated_data)
 
 
 class UserSerializer(serializers.ModelSerializer):
