@@ -113,12 +113,11 @@ const AdminLeaders = () => {
         fd.append(k, v === true ? 'true' : v === false ? 'false' : v);
       });
       if (imageFile) fd.append('image', imageFile);
-      const cfg = { headers: { 'Content-Type': 'multipart/form-data' } };
       if (editingId) {
-        await apiClient.patch(`/admin/leaders/${editingId}/`, fd, cfg);
+        await apiClient.patch(`/admin/leaders/${editingId}/`, fd);
         showToast('Leader updated', 'success');
       } else {
-        await apiClient.post('/admin/leaders/', fd, cfg);
+        await apiClient.post('/admin/leaders/', fd);
         showToast('Leader added', 'success');
       }
       setModalOpen(false);

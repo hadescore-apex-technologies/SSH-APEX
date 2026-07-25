@@ -60,9 +60,16 @@ def convert_file_to_base64(file_obj):
     except Exception:
         return str(file_obj)
 
+class FlexibleImageField(serializers.Field):
+    def to_internal_value(self, data):
+        return data
+
+    def to_representation(self, value):
+        return str(value) if value else None
+
 class ExecutiveLeaderSerializer(serializers.ModelSerializer):
     id = ObjectIdField(read_only=True)
-    image = serializers.CharField(required=False, allow_null=True, allow_blank=True)
+    image = FlexibleImageField(required=False, allow_null=True)
 
     class Meta:
         model = ExecutiveLeader
@@ -70,15 +77,17 @@ class ExecutiveLeaderSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_at']
 
     def create(self, validated_data):
-        image_val = self.initial_data.get('image') or validated_data.get('image')
+        image_val = validated_data.get('image')
         if image_val and not isinstance(image_val, str):
             validated_data['image'] = convert_file_to_base64(image_val)
         return super().create(validated_data)
 
     def update(self, instance, validated_data):
-        image_val = self.initial_data.get('image') or validated_data.get('image')
+        image_val = validated_data.get('image')
         if image_val and not isinstance(image_val, str):
             validated_data['image'] = convert_file_to_base64(image_val)
+        elif image_val is None and 'image' not in self.initial_data:
+            validated_data.pop('image', None)
         return super().update(instance, validated_data)
 
 

@@ -142,10 +142,13 @@ class ProjectBriefViewSet(MarkReadMixin, viewsets.ModelViewSet):
     permission_classes = [IsAdminUser]
 
 
+from rest_framework.parsers import MultiPartParser, FormParser
+
 class ExecutiveLeaderViewSet(viewsets.ModelViewSet):
     queryset = ExecutiveLeader.objects.all().order_by('order', 'id')
     serializer_class = ExecutiveLeaderSerializer
     permission_classes = [IsAdminUser]
+    parser_classes = (MultiPartParser, FormParser)
 
 
 class ProductViewSet(viewsets.ModelViewSet):
