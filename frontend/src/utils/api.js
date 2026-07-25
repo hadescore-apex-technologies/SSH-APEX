@@ -1,9 +1,9 @@
 export const getBackendUrl = (path = '') => {
-  // In production (or any environment where VITE_API_URL is set),
-  // use the configured URL. Otherwise fall back to localhost:8000.
   const base = import.meta.env.VITE_API_URL
-    ? import.meta.env.VITE_API_URL.replace(/\/$/, '')  // strip trailing slash
-    : `http://${window.location.hostname === 'localhost' ? '127.0.0.1' : window.location.hostname}:8000`;
+    ? import.meta.env.VITE_API_URL.replace(/\/$/, '')
+    : (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        ? 'http://127.0.0.1:8000'
+        : 'https://ssh-apex.onrender.com');
 
   return `${base}${path}`;
 };

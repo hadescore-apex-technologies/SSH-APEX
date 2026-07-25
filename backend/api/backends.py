@@ -4,10 +4,11 @@ from django.db.models import Q
 
 class EmailOrUsernameModelBackend(ModelBackend):
     def authenticate(self, request, username=None, password=None, **kwargs):
+        if not username:
+            return None
         UserModel = get_user_model()
-        # Find all users matching the username or email
-        users = UserModel.objects.filter(Q(username__iexact=username) | Q(email__iexact=username))
-        for user in users:
-            if user.check_password(password) and self.user_can_authenticate(user):
-                return user
+        # Query by exact username or email (django_mongodb_backend supported)
+        user = UserModel.objects.filter(username=username).first() or UserModel.objects.filter(email=username).first()
+        if user and user.check_password(password) and self.user_can_authenticate(user):
+            return user
         return None
