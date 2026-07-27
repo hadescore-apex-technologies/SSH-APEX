@@ -52,13 +52,36 @@ def convert_file_to_base64(file_obj):
         return None
     if isinstance(file_obj, str):
         return file_obj
+    import io
+    from PIL import Image
     try:
-        content = file_obj.read()
-        mime = getattr(file_obj, 'content_type', 'image/jpeg') or 'image/jpeg'
+        # Load image via PIL
+        img = Image.open(file_obj)
+        
+        # Convert RGBA/P to RGB for JPEG formatting
+        if img.mode in ("RGBA", "P"):
+            img = img.convert("RGB")
+            
+        # Resize image to thumbnail size (e.g. max 256x256)
+        img.thumbnail((256, 256), Image.Resampling.LANCZOS)
+        
+        # Save to memory buffer with quality compression
+        buf = io.BytesIO()
+        img.save(buf, format="JPEG", quality=70, optimize=True)
+        content = buf.getvalue()
+        
         encoded = base64.b64encode(content).decode('utf-8')
-        return f"data:{mime};base64,{encoded}"
+        return f"data:image/jpeg;base64,{encoded}"
     except Exception:
-        return str(file_obj)
+        # Fallback to standard base64 if PIL fails or file is not an image
+        try:
+            file_obj.seek(0)
+            content = file_obj.read()
+            mime = getattr(file_obj, 'content_type', 'image/jpeg') or 'image/jpeg'
+            encoded = base64.b64encode(content).decode('utf-8')
+            return f"data:{mime};base64,{encoded}"
+        except Exception:
+            return str(file_obj)
 
 class FlexibleImageField(serializers.Field):
     def to_internal_value(self, data):
