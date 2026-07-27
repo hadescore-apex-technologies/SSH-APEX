@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import apiClient from '../utils/apiClient';
 import { useToast } from '../../components/Toast';
 import { getBackendUrl } from '../../utils/api';
+import { safeSetCache, safeGetCache, safeClearCache } from '../utils/safeCache';
 
 const inputStyle = {
   width: '100%', padding: '0.8rem 1rem',
@@ -14,21 +15,10 @@ const inputStyle = {
 
 const AdminLeaders = () => {
   const [leaders, setLeaders] = useState(() => {
-    try {
-      const cached = localStorage.getItem('hadescore_cache_admin_leaders');
-      return cached ? JSON.parse(cached) : [];
-    } catch {
-      return [];
-    }
+    const cached = safeGetCache('hadescore_cache_admin_leaders');
+    return Array.isArray(cached) ? cached : [];
   });
-  const [loading, setLoading] = useState(() => {
-    try {
-      const cached = localStorage.getItem('hadescore_cache_admin_leaders');
-      return !cached;
-    } catch {
-      return true;
-    }
-  });
+  const [loading, setLoading] = useState(() => !safeGetCache('hadescore_cache_admin_leaders'));
   const [modalOpen, setModalOpen] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -43,22 +33,26 @@ const AdminLeaders = () => {
   const navigate = useNavigate();
 
   const fetchLeaders = async () => {
-    const cached = localStorage.getItem('hadescore_cache_admin_leaders');
-    if (!cached) setLoading(true);
+    if (!safeGetCache('hadescore_cache_admin_leaders')) setLoading(true);
     try {
       const res = await apiClient.get('/admin/leaders/');
-      setLeaders(res.data);
-      localStorage.setItem('hadescore_cache_admin_leaders', JSON.stringify(res.data));
+      if (Array.isArray(res.data)) {
+        setLeaders(res.data);
+        safeSetCache('hadescore_cache_admin_leaders', res.data);
+      } else {
+        setLeaders([]);
+        safeClearCache('hadescore_cache_admin_leaders');
+      }
     } catch (e) {
       showToast('Failed to load leaders', 'error');
     } finally { setLoading(false); }
   };
 
   useEffect(() => {
-    if (leaders && leaders.length > 0) {
-      localStorage.setItem('hadescore_cache_admin_leaders', JSON.stringify(leaders));
+    if (Array.isArray(leaders) && leaders.length > 0) {
+      safeSetCache('hadescore_cache_admin_leaders', leaders);
     } else {
-      localStorage.removeItem('hadescore_cache_admin_leaders');
+      safeClearCache('hadescore_cache_admin_leaders');
     }
   }, [leaders]);
 
@@ -67,7 +61,7 @@ const AdminLeaders = () => {
   const openAdd = () => {
     setEditingId(null);
     setForm({
-      name: '', role: '', detail: '', linkedin_url: '', portfolio_url: '', email: '', order: leaders.length,
+      name: '', role: '', detail: '', linkedin_url: '', portfolio_url: '', email: '', order: (leaders || []).length,
       is_founder: false, initials: '', color_theme: 'cyan', quote: '',
       stat1_value: '', stat1_label: '', stat2_value: '', stat2_label: '',
       stat3_value: '', stat3_label: ''
@@ -182,7 +176,7 @@ const AdminLeaders = () => {
                 <div style={{ width: '60px', height: '60px', borderRadius: '50%', flexShrink: 0, overflow: 'hidden', border: '2px solid rgba(79,156,255,0.25)', background: l.image ? 'transparent' : 'rgba(79,156,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {l.image
                     ? <img src={getBackendUrl(l.image)} alt={l.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.3s ease' }} className="leader-avatar-img" />
-                    : <span style={{ color: '#4f9cff', fontWeight: '800', fontSize: '1.3rem' }}>{l.initials || l.name[0]}</span>
+                    : <span style={{ color: '#4f9cff', fontWeight: '800', fontSize: '1.3rem' }}>{l.initials || (l.name ? l.name[0] : '')}</span>
                   }
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>

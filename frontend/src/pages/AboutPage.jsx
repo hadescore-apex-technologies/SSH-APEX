@@ -11,7 +11,8 @@ function AboutPage({ navigateTo }) {
   const [leaders, setLeaders] = useState(() => {
     try {
       const cached = localStorage.getItem('hadescore_cache_leaders');
-      return cached ? JSON.parse(cached) : [];
+      const parsed = cached ? JSON.parse(cached) : [];
+      return Array.isArray(parsed) ? parsed : [];
     } catch {
       return [];
     }
@@ -20,9 +21,9 @@ function AboutPage({ navigateTo }) {
   useEffect(() => {
     axios.get(getBackendUrl('/api/leaders/'))
       .then(res => {
-        if (res.data && res.data.length > 0) {
+        if (Array.isArray(res.data) && res.data.length > 0) {
           setLeaders(res.data);
-          localStorage.setItem('hadescore_cache_leaders', JSON.stringify(res.data));
+          try { localStorage.setItem('hadescore_cache_leaders', JSON.stringify(res.data)); } catch (e) { /* quota exceeded */ }
         }
       })
       .catch(err => console.error("Failed to load leaders", err));
@@ -225,8 +226,9 @@ function AboutPage({ navigateTo }) {
 
       {/* Executive Leadership - Redesigned Founder & Team Section */}
       {(() => {
-        const founder = leaders.find(l => l.is_founder);
-        const teamMembers = leaders.filter(l => !l.is_founder);
+        const leadersList = Array.isArray(leaders) ? leaders : [];
+        const founder = leadersList.find(l => l.is_founder);
+        const teamMembers = leadersList.filter(l => !l.is_founder);
         const themeColors = {
           cyan: { border: '#00e5ff', shadow: 'rgba(0, 229, 255, 0.4)' },
           purple: { border: '#a855f7', shadow: 'rgba(168, 85, 247, 0.4)' },
