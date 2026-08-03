@@ -955,8 +955,8 @@ function CareersPage({ navigateTo }) {
           </div>
           <div className="placement-stats-grid">
             {[
-              { num: '500+', label: 'Candidates Placed' },
-              { num: '80+', label: 'Hiring Partners' },
+              { num: '20+', label: 'Candidates Placed' },
+              { num: '3+', label: 'Hiring Partners' },
               { num: '95%', label: 'Placement Rate' },
               { num: '30d', label: 'Avg. Time to Hire' },
             ].map((s, i) => (

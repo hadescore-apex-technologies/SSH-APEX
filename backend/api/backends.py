@@ -1,5 +1,8 @@
+# pyrefly: ignore [missing-import]
 from django.contrib.auth.backends import ModelBackend
+# pyrefly: ignore [missing-import]
 from django.contrib.auth import get_user_model
+# pyrefly: ignore [missing-import]
 from django.db.models import Q
 
 class EmailOrUsernameModelBackend(ModelBackend):

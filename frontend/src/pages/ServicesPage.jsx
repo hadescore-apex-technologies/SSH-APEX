@@ -5,7 +5,7 @@ import { getBackendUrl } from '../utils/api';
 import RotatingLogo from '../components/RotatingLogo';
 
 const SERVICE_OPTIONS = ['Technology / Software', 'Digital Marketing', 'AI & Automation', 'Cybersecurity', 'UI/UX Design', 'Multiple Services'];
-const BUDGET_OPTIONS = ["Under $1,000", "$1,000 – $5,000", "$5,000 – $20,000", "$20,000+", "Let's discuss"];
+const BUDGET_OPTIONS = ["Under ₹50,000", "₹50,000 – ₹2,00,000", "₹2,00,000 – ₹10,00,000", "₹10,00,000+", "Let's discuss"];
 const TOTAL_STEPS = 4;
 
 const inputStyle = {
@@ -169,7 +169,7 @@ function ServicesPage({ navigateTo }) {
           localStorage.setItem('hadescore_cache_services', JSON.stringify(formatted));
         }
       })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
 
@@ -223,216 +223,216 @@ function ServicesPage({ navigateTo }) {
       {/* Content wrapper for scrolling contents */}
       <div className="page-content-wrapper">
 
-      {/* Animated Stats Section */}
-      <section style={{ maxWidth: '1000px', margin: '0 auto 5rem', padding: '0 1rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
-          
-          <div style={{ background: '#1c2128', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-            <div style={{ fontSize: '2.5rem', fontWeight: '800', color: '#4ade80', marginBottom: '0.25rem', fontFamily: 'Outfit, sans-serif' }}>
-              <AnimatedCounter end={200} suffix="+" />
+        {/* Animated Stats Section */}
+        <section style={{ maxWidth: '1000px', margin: '0 auto 5rem', padding: '0 1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+
+            <div style={{ background: '#1c2128', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
+              <div style={{ fontSize: '2.5rem', fontWeight: '800', color: '#4ade80', marginBottom: '0.25rem', fontFamily: 'Outfit, sans-serif' }}>
+                <AnimatedCounter end={50} suffix="+" />
+              </div>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Projects Delivered</div>
             </div>
-            <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Projects Delivered</div>
+
+            <div style={{ background: '#1c2128', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
+              <div style={{ fontSize: '2.5rem', fontWeight: '800', color: '#4ade80', marginBottom: '0.25rem', fontFamily: 'Outfit, sans-serif' }}>
+                <AnimatedCounter end={20} suffix="+" />
+              </div>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Active Clients</div>
+            </div>
+
+            <div style={{ background: '#1c2128', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
+              <div style={{ fontSize: '2.5rem', fontWeight: '800', color: '#4ade80', marginBottom: '0.25rem', fontFamily: 'Outfit, sans-serif' }}>
+                <AnimatedCounter end={4} suffix="+" />
+              </div>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Service Domains</div>
+            </div>
+
+            <div style={{ background: '#1c2128', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
+              <div style={{ fontSize: '2.5rem', fontWeight: '800', color: '#4ade80', marginBottom: '0.25rem', fontFamily: 'Outfit, sans-serif' }}>
+                <AnimatedCounter end={99} suffix="%" />
+              </div>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Client Satisfaction</div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* Services List */}
+        <section id="service-domains" ref={servicesRef} style={{ maxWidth: '1400px', margin: '0 auto 6rem', padding: '0 2rem' }}>
+          <div className="section-header" style={{ textAlign: 'left', marginBottom: '2.5rem' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>What We Do</span>
+            <h2 style={{ fontSize: '2rem', fontWeight: '800', marginTop: '0.4rem' }}>Our Service Domains</h2>
+          </div>
+          <div className="interactive-services-container">
+            {servicesData.map((service, i) => (
+              <InteractiveServiceCard key={i} service={service} index={i} />
+            ))}
+          </div>
+        </section>
+
+        {/* How We Work */}
+        <section style={{ maxWidth: '1000px', margin: '0 auto 6rem', padding: '0 1rem' }}>
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Process</span>
+            <h2 style={{ fontSize: '2rem', fontWeight: '800', marginTop: '0.4rem' }}>How We Work</h2>
           </div>
 
-          <div style={{ background: '#1c2128', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-            <div style={{ fontSize: '2.5rem', fontWeight: '800', color: '#4ade80', marginBottom: '0.25rem', fontFamily: 'Outfit, sans-serif' }}>
-              <AnimatedCounter end={50} suffix="+" />
-            </div>
-            <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Active Clients</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'relative', maxWidth: '800px', margin: '0 auto' }}>
+            {/* Vertical Connector line */}
+            <div style={{
+              position: 'absolute',
+              top: '2rem',
+              bottom: '2rem',
+              left: '3.5rem',
+              width: '2px',
+              background: 'linear-gradient(180deg, var(--primary), var(--accent))',
+              opacity: 0.3,
+              zIndex: 0,
+            }} />
+
+            {processSteps.map((step, i) => (
+              <div
+                key={i}
+                onClick={() => setActiveStep(i)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: '2rem',
+                  padding: '1.5rem',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  zIndex: 1,
+                  background: activeStep === i ? 'rgba(255,255,255,0.03)' : 'transparent',
+                  borderRadius: '16px',
+                  border: activeStep === i ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                {/* Step circle */}
+                <div style={{
+                  width: '4rem',
+                  height: '4rem',
+                  borderRadius: '50%',
+                  background: activeStep === i
+                    ? 'linear-gradient(135deg, var(--primary), var(--accent-dark))'
+                    : 'var(--bg-card)',
+                  border: `2px solid ${activeStep === i ? 'var(--primary)' : 'var(--border)'}`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: '800',
+                  fontSize: '1.1rem',
+                  color: activeStep === i ? '#fff' : 'var(--text-muted)',
+                  boxShadow: activeStep === i ? '0 0 20px rgba(88,166,255,0.4)' : 'none',
+                  transition: 'all 0.3s ease',
+                }}>
+                  {step.num}
+                </div>
+                <div style={{ textAlign: 'left', paddingTop: '0.5rem' }}>
+                  <h3 style={{
+                    fontSize: '1.25rem',
+                    fontWeight: '700',
+                    marginBottom: '0.5rem',
+                    color: activeStep === i ? 'var(--text-main)' : 'var(--text-secondary)',
+                    transition: 'color 0.3s ease',
+                  }}>{step.title}</h3>
+                  <p style={{
+                    fontSize: '0.95rem',
+                    color: 'var(--text-muted)',
+                    lineHeight: '1.6',
+                    margin: 0,
+                  }}>{step.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
+        </section>
 
-          <div style={{ background: '#1c2128', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-            <div style={{ fontSize: '2.5rem', fontWeight: '800', color: '#4ade80', marginBottom: '0.25rem', fontFamily: 'Outfit, sans-serif' }}>
-              <AnimatedCounter end={8} suffix="+" />
-            </div>
-            <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Service Domains</div>
-          </div>
-
-          <div style={{ background: '#1c2128', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '1.5rem 1rem', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-            <div style={{ fontSize: '2.5rem', fontWeight: '800', color: '#4ade80', marginBottom: '0.25rem', fontFamily: 'Outfit, sans-serif' }}>
-              <AnimatedCounter end={99} suffix="%" />
-            </div>
-            <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Client Satisfaction</div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Services List */}
-      <section id="service-domains" ref={servicesRef} style={{ maxWidth: '1400px', margin: '0 auto 6rem', padding: '0 2rem' }}>
-        <div className="section-header" style={{ textAlign: 'left', marginBottom: '2.5rem' }}>
-          <span style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>What We Do</span>
-          <h2 style={{ fontSize: '2rem', fontWeight: '800', marginTop: '0.4rem' }}>Our Service Domains</h2>
-        </div>
-        <div className="interactive-services-container">
-          {servicesData.map((service, i) => (
-            <InteractiveServiceCard key={i} service={service} index={i} />
-          ))}
-        </div>
-      </section>
-
-      {/* How We Work */}
-      <section style={{ maxWidth: '1000px', margin: '0 auto 6rem', padding: '0 1rem' }}>
-        <div className="section-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <span style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Process</span>
-          <h2 style={{ fontSize: '2rem', fontWeight: '800', marginTop: '0.4rem' }}>How We Work</h2>
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'relative', maxWidth: '800px', margin: '0 auto' }}>
-          {/* Vertical Connector line */}
+        {/* Why Choose Us */}
+        <section style={{ maxWidth: '1100px', margin: '0 auto 6rem', padding: '0 1rem' }}>
           <div style={{
-            position: 'absolute',
-            top: '2rem',
-            bottom: '2rem',
-            left: '3.5rem',
-            width: '2px',
-            background: 'linear-gradient(180deg, var(--primary), var(--accent))',
-            opacity: 0.3,
-            zIndex: 0,
-          }} />
-
-          {processSteps.map((step, i) => (
-            <div
-              key={i}
-              onClick={() => setActiveStep(i)}
-              style={{
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '2rem',
-                padding: '1.5rem',
-                cursor: 'pointer',
-                position: 'relative',
-                zIndex: 1,
-                background: activeStep === i ? 'rgba(255,255,255,0.03)' : 'transparent',
-                borderRadius: '16px',
-                border: activeStep === i ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
-                transition: 'all 0.3s ease',
-              }}
-            >
-              {/* Step circle */}
-              <div style={{
-                width: '4rem',
-                height: '4rem',
-                borderRadius: '50%',
-                background: activeStep === i
-                  ? 'linear-gradient(135deg, var(--primary), var(--accent-dark))'
-                  : 'var(--bg-card)',
-                border: `2px solid ${activeStep === i ? 'var(--primary)' : 'var(--border)'}`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-                fontFamily: 'Outfit, sans-serif',
-                fontWeight: '800',
-                fontSize: '1.1rem',
-                color: activeStep === i ? '#fff' : 'var(--text-muted)',
-                boxShadow: activeStep === i ? '0 0 20px rgba(88,166,255,0.4)' : 'none',
-                transition: 'all 0.3s ease',
-              }}>
-                {step.num}
+            display: 'grid',
+            gridTemplateColumns: '1fr',
+            gap: '3rem',
+            alignItems: 'center',
+          }}>
+            <div style={{ textAlign: 'center' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Why Us</span>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: '800', margin: '0.5rem 0 1rem', lineHeight: '1.15' }}>Built Different, Delivered Better</h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '3rem', maxWidth: '800px', margin: '0 auto 3rem' }}>
+                We're not a typical agency. Hadescore Apex & Technologies combines enterprise-grade engineering with startup agility — giving you the best of both worlds.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', textAlign: 'left', marginBottom: '2rem' }}>
+                {advantages.map((a, i) => (
+                  <div key={i} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', padding: '1.5rem', borderRadius: '16px', transition: 'all 0.3s ease', cursor: 'pointer' }} onMouseOver={e => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; }} onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}>
+                    <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}><CardIcon type={a.icon} /></div>
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: '700', marginBottom: '0.75rem', color: 'var(--text-main)' }}>{a.title}</h3>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>{a.desc}</p>
+                  </div>
+                ))}
               </div>
-              <div style={{ textAlign: 'left', paddingTop: '0.5rem' }}>
-                <h3 style={{
-                  fontSize: '1.25rem',
-                  fontWeight: '700',
-                  marginBottom: '0.5rem',
-                  color: activeStep === i ? 'var(--text-main)' : 'var(--text-secondary)',
-                  transition: 'color 0.3s ease',
-                }}>{step.title}</h3>
-                <p style={{
-                  fontSize: '0.95rem',
-                  color: 'var(--text-muted)',
-                  lineHeight: '1.6',
-                  margin: 0,
-                }}>{step.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section style={{ maxWidth: '1100px', margin: '0 auto 6rem', padding: '0 1rem' }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: '3rem',
-          alignItems: 'center',
-        }}>
-          <div style={{ textAlign: 'center' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Why Us</span>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', margin: '0.5rem 0 1rem', lineHeight: '1.15' }}>Built Different, Delivered Better</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '3rem', maxWidth: '800px', margin: '0 auto 3rem' }}>
-              We're not a typical agency. Hadescore Apex & Technologies combines enterprise-grade engineering with startup agility — giving you the best of both worlds.
-            </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', textAlign: 'left', marginBottom: '2rem' }}>
-              {advantages.map((a, i) => (
-                <div key={i} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', padding: '1.5rem', borderRadius: '16px', transition: 'all 0.3s ease', cursor: 'pointer' }} onMouseOver={e => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; }} onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'var(--primary-light)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}><CardIcon type={a.icon} /></div>
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: '700', marginBottom: '0.75rem', color: 'var(--text-main)' }}>{a.title}</h3>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>{a.desc}</p>
-                </div>
-              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Industries */}
-      <section style={{ maxWidth: '1100px', margin: '0 auto 6rem', padding: '0 1rem' }}>
-        <div className="section-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <span style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Reach</span>
-          <h2 style={{ fontSize: '2rem', fontWeight: '800', marginTop: '0.4rem' }}>Industries We Serve</h2>
-        </div>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '1.25rem',
-        }}>
-          {industries.map((ind, i) => (
-            <div
-              key={i}
-              className="glass-card"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem',
-                padding: '1.25rem 1.5rem',
-              }}
-            >
-              <div style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: 'var(--radius-md)',
-                background: 'var(--primary-light)',
-                color: 'var(--primary)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-                border: '1px solid rgba(88,166,255,0.15)',
-              }}>
-                <div style={{ width: '20px', height: '20px' }}>
-                  <CardIcon type={ind.icon} />
+        {/* Industries */}
+        <section style={{ maxWidth: '1100px', margin: '0 auto 6rem', padding: '0 1rem' }}>
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--primary)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Reach</span>
+            <h2 style={{ fontSize: '2rem', fontWeight: '800', marginTop: '0.4rem' }}>Industries We Serve</h2>
+          </div>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1.25rem',
+          }}>
+            {industries.map((ind, i) => (
+              <div
+                key={i}
+                className="glass-card"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '1rem',
+                  padding: '1.25rem 1.5rem',
+                }}
+              >
+                <div style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: 'var(--radius-md)',
+                  background: 'var(--primary-light)',
+                  color: 'var(--primary)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  border: '1px solid rgba(88,166,255,0.15)',
+                }}>
+                  <div style={{ width: '20px', height: '20px' }}>
+                    <CardIcon type={ind.icon} />
+                  </div>
                 </div>
+                <span style={{ fontWeight: '600', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{ind.label}</span>
               </div>
-              <span style={{ fontWeight: '600', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{ind.label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      {/* CTA */}
-      <section style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 1rem' }}>
-        <div className="interactive-cta-banner">
-          <div className="cta-glow"></div>
-          <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '1rem' }}>Ready to start a project?</h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '2.5rem' }}>Talk to our team to discover how we can help.</p>
-          <button className="premium-cta-btn" onClick={() => navigateTo('contact')} style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
-            Contact Us
-          </button>
-        </div>
-      </section>
+        {/* CTA */}
+        <section style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 1rem' }}>
+          <div className="interactive-cta-banner">
+            <div className="cta-glow"></div>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '1rem' }}>Ready to start a project?</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '2.5rem' }}>Talk to our team to discover how we can help.</p>
+            <button className="premium-cta-btn" onClick={() => navigateTo('contact')} style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
+              Contact Us
+            </button>
+          </div>
+        </section>
       </div>
     </div>
   );

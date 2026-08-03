@@ -107,7 +107,7 @@ function AdvancedSEO({
     },
     "offers": {
       "@type": "Offer",
-      "priceCurrency": "USD",
+      "priceCurrency": "INR",
       "price": product.price,
       "availability": "https://schema.org/InStock",
       "url": product.url

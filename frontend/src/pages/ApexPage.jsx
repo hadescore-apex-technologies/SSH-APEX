@@ -134,11 +134,10 @@ const EVT_ICONS    = [Icons.Event, Icons.Spark, Icons.Scale, Icons.Event];
 
 /* ─── Fallback data ─────────────────────────────────────────────────────── */
 const FALLBACK_ITEMS = [
-  { section:'hero',      title:'Division 03 · Hadescore Apex', subtitle:'Where moonshots become products.', description:"Apex is Hadescore's innovation engine — six research labs, three startup programs, and a portfolio of 48+ deep-tech ventures shipping the future from India.", tags:'Build the next decade with us.', extra:'Apply Now', link:'contact', order:0, is_active:true },
-  { section:'stats',     title:'48',     subtitle:'Active startups',    order:0, is_active:true },
-  { section:'stats',     title:'₹220 Cr',subtitle:'Capital deployed',   order:1, is_active:true },
-  { section:'stats',     title:'32',     subtitle:'Patents filed',      order:2, is_active:true },
-  { section:'stats',     title:'60+',    subtitle:'Research papers',    order:3, is_active:true },
+  { section:'hero',      title:'Division 03 · Hadescore Apex', subtitle:'Where moonshots become products.', description:"Apex is Hadescore's innovation engine — six research labs, three startup programs, and a portfolio of 15 deep-tech ventures shipping the future from India.", tags:'Build the next decade with us.', extra:'Apply Now', link:'contact', order:0, is_active:true },
+  { section:'stats',     title:'15',     subtitle:'Active startups',    order:0, is_active:true },
+  { section:'stats',     title:'10+',    subtitle:'Patents filed',      order:1, is_active:true },
+  { section:'stats',     title:'10+',    subtitle:'Research papers',    order:2, is_active:true },
   { section:'labs',      title:'AI Research Lab',      subtitle:'Foundation models, agentic systems, fine-tuning at scale.', description:'LLMs · Agents · RAG · Eval', order:0, is_active:true },
   { section:'labs',      title:'Biotech Lab',           subtitle:'Wet + dry labs for genomics, drug discovery & synthetic bio.', description:'CRISPR · Bioinformatics · Synthetic Biology', order:1, is_active:true },
   { section:'labs',      title:'Robotics Lab',          subtitle:'Industrial automation, humanoid R&D, ROS2 stack.', description:'Manipulation · SLAM · Sim2Real', order:2, is_active:true },
@@ -208,10 +207,10 @@ function IconBox({ Icon, palette }) {
 
 function ApexPage({ navigateTo }) {
   const [items, setItems] = useState(() => {
-    try { const c = localStorage.getItem('hadescore_cache_apex'); return c ? JSON.parse(c) : null; } catch { return null; }
+    try { const c = localStorage.getItem('hadescore_cache_apex_v3'); return c ? JSON.parse(c) : null; } catch { return null; }
   });
   const [loading, setLoading] = useState(() => {
-    try { return !localStorage.getItem('hadescore_cache_apex'); } catch { return true; }
+    try { return !localStorage.getItem('hadescore_cache_apex_v3'); } catch { return true; }
   });
 
   useEffect(() => {
@@ -222,7 +221,7 @@ function ApexPage({ navigateTo }) {
           const data = await res.json();
           const g = groupBySection(data);
           setItems(g);
-          localStorage.setItem('hadescore_cache_apex', JSON.stringify(g));
+          localStorage.setItem('hadescore_cache_apex_v3', JSON.stringify(g));
         } else if (!items) setItems(groupBySection(FALLBACK_ITEMS));
       } catch { if (!items) setItems(groupBySection(FALLBACK_ITEMS)); }
       finally { setLoading(false); }
@@ -463,7 +462,7 @@ function ApexPage({ navigateTo }) {
           <p style={{ color:'rgba(255,255,255,0.6)', fontSize:'clamp(0.95rem,2.2vw,1.12rem)', lineHeight:'1.75', maxWidth:'760px', margin:'0 0 2.5rem', textAlign:'center', fontWeight:'400' }}>
             Apex is Hadescore's innovation engine —{' '}
             <span style={{ color:'#e2e8f0', fontWeight:'500' }}>
-              six research labs, three startup programs, and a portfolio of 48+ deep-tech ventures shipping the future from India.
+              six research labs, three startup programs, and a portfolio of 15 deep-tech ventures shipping the future from India.
             </span>
           </p>
           <div style={{ display:'flex', gap:'1.25rem', flexWrap:'wrap', justifyContent:'center' }}>

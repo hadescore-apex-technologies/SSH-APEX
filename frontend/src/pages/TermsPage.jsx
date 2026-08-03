@@ -66,7 +66,7 @@ const TermsPage = () => {
       <section style={{ marginBottom: '2rem' }}>
         <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>7. Contact Information</h2>
         <p style={{ lineHeight: '1.8', color: 'var(--text-secondary)' }}>
-          For questions about these Terms of Service, please contact us at <a href="mailto:hadescore.apex.technologies@gmail.com" target="_blank" rel="noopener noreferrer" style={{ color: '#4f9cff', textDecoration: 'none' }}>hadescore.apex.technologies@gmail.com</a>
+          For questions about these Terms of Service, please contact us at <a href="mailto:info@apex.hadescoretech.com" target="_blank" rel="noopener noreferrer" style={{ color: '#4f9cff', textDecoration: 'none' }}>info@apex.hadescoretech.com</a>
         </p>
       </section>
     </div>

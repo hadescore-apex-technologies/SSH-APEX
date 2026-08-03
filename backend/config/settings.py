@@ -138,16 +138,17 @@ MEDIA_ROOT = config('MEDIA_ROOT', default=str(os.path.join(BASE_DIR, 'media')))
 # CORS
 # ──────────────────────────────────────────────────────────────────
 
-# In development allow all; in production restrict to your domain
+# In development allow all; in production restrict to specified origins
 if DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True
 else:
     CORS_ALLOW_ALL_ORIGINS = False
-    CORS_ALLOWED_ORIGINS = config(
-        'CORS_ALLOWED_ORIGINS',
-        default='http://localhost:5173,http://127.0.0.1:5173',
-        cast=Csv()
-    )
+
+CORS_ALLOWED_ORIGINS = config(
+    'CORS_ALLOWED_ORIGINS',
+    default='http://localhost:5173,http://127.0.0.1:5173',
+    cast=Csv()
+)
 
 CORS_ALLOW_HEADERS = [
     'accept',

@@ -1000,10 +1000,10 @@ function LearningHubPage({ navigateTo }) {
         </div>
         <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginTop: '3rem' }}>
           {[
-            { num: '10,000+', lbl: 'Students Trained' },
-            { num: '500+', lbl: 'Industry Projects' },
-            { num: '250+', lbl: 'Internship Slots' },
-            { num: '100+', lbl: 'Industry Mentors' },
+            { num: '200+', lbl: 'Students Trained' },
+            { num: '50+', lbl: 'Industry Projects' },
+            { num: '150+', lbl: 'Internship Slots' },
+            { num: '50+', lbl: 'Industry Mentors' },
             { num: '50+', lbl: 'Technology Domains' },
             { num: '95%', lbl: 'Student Satisfaction' }
           ].map((stat, i) => (

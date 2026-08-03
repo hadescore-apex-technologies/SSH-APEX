@@ -51,18 +51,18 @@ function HomePage({ navigateTo }) {
       const progress = step / steps;
 
       setStatCounts({
-        students: Math.floor(200000 * progress),
-        partners: Math.floor(100 * progress),
-        clusters: Math.floor(15 * progress),
+        students: Math.floor(200 * progress),
+        partners: Math.floor(10 * progress),
+        clusters: Math.floor(10 * progress),
         uptime: Math.min(99.9, (99.9 * progress))
       });
 
       if (step >= steps) {
         clearInterval(timer);
         setStatCounts({
-          students: 200000,
-          partners: 100,
-          clusters: 15,
+          students: 200,
+          partners: 10,
+          clusters: 10,
           uptime: 99.9
         });
       }
@@ -309,7 +309,7 @@ function HomePage({ navigateTo }) {
         {/* Stats Panel */}
         <div id="stats-section" className="stats-grid" data-animation="slideInUp 0.6s ease-out forwards">
         <div className="stat-item">
-          <div className="stat-number">{statCounts.students >= 1000 ? `${Math.floor(statCounts.students / 1000)}k+` : statCounts.students}</div>
+          <div className="stat-number">{statCounts.students >= 1000 ? `${Math.floor(statCounts.students / 1000)}k+` : `${statCounts.students}+`}</div>
           <div className="stat-label">Students Trained</div>
         </div>
         <div className="stat-item">

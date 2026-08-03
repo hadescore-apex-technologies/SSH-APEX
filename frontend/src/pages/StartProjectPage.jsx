@@ -193,10 +193,10 @@ function StartProjectPage({ navigateTo }) {
               <label style={{ display: 'block', marginBottom: '0.25rem', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Estimated Budget</label>
               <select name="budget" value={formData.budget} onChange={handleChange} style={{...inputStyle, background: 'var(--bg-section)'}}>
                 <option value="">Select a budget...</option>
-                <option value="Under $1,000">Under $1,000</option>
-                <option value="$1,000 – $5,000">$1,000 – $5,000</option>
-                <option value="$5,000 – $20,000">$5,000 – $20,000</option>
-                <option value="$20,000+">$20,000+</option>
+                <option value="Under ₹50,000">Under ₹50,000</option>
+                <option value="₹50,000 – ₹2,00,000">₹50,000 – ₹2,00,000</option>
+                <option value="₹2,00,000 – ₹10,00,000">₹2,00,000 – ₹10,00,000</option>
+                <option value="₹10,00,000+">₹10,00,000+</option>
                 <option value="Let's discuss">Let's discuss</option>
               </select>
             </div>

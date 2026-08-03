@@ -14,7 +14,7 @@ export const generalFAQs = [
   },
   {
     question: "How can I contact Hadescore Apex & Technologies?",
-    answer: "You can contact us via phone at +91 9790080274 or email at hadescore.apex.technologies@gmail.com. You can also fill out the contact form on our website at hadescoreapex.com/contact. We respond within 24 hours."
+    answer: "You can contact us via phone at +91 9790080274 or email at info@apex.hadescoretech.com. You can also fill out the contact form on our website at hadescoreapex.com/contact. We respond within 24 hours."
   },
   {
     question: "What are the business hours of Hadescore Apex & Technologies?",
@@ -30,7 +30,7 @@ export const generalFAQs = [
   },
   {
     question: "How much does software development cost at Hadescore?",
-    answer: "Project costs vary based on requirements, complexity, and timeline. We offer flexible pricing starting from under $1,000 for small projects to $20,000+ for enterprise solutions. Contact us for a detailed quote tailored to your specific needs."
+    answer: "Project costs vary based on requirements, complexity, and timeline. We offer flexible pricing starting from under ₹50,000 for small projects to ₹10,00,000+ for enterprise solutions. Contact us for a detailed quote tailored to your specific needs."
   },
   {
     question: "What is the typical timeline for a software project?",

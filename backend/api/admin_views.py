@@ -1,11 +1,20 @@
+# pyrefly: ignore [missing-import]
 from rest_framework import viewsets, status
+# pyrefly: ignore [missing-import]
 from rest_framework.decorators import action
+# pyrefly: ignore [missing-import]
 from rest_framework.views import APIView
+# pyrefly: ignore [missing-import]
 from rest_framework.response import Response
+# pyrefly: ignore [missing-import]
 from rest_framework.permissions import IsAdminUser
+# pyrefly: ignore [missing-import]
 from django.contrib.auth.models import User, Group
+# pyrefly: ignore [missing-import]
 from django.utils import timezone
+# pyrefly: ignore [missing-import]
 from django.db import models as django_models
+# pyrefly: ignore [missing-import]
 from datetime import timedelta
 
 from .models import (
@@ -44,6 +53,7 @@ class MarkReadMixin:
         model = self.queryset.model
         if model.objects.exists():
             return Response({'error': 'Cannot reset sequence while records still exist.'}, status=400)
+        # pyrefly: ignore [missing-import]
         from django.db import connection
         table = model._meta.db_table
         with connection.cursor() as cursor:
@@ -142,6 +152,7 @@ class ProjectBriefViewSet(MarkReadMixin, viewsets.ModelViewSet):
     permission_classes = [IsAdminUser]
 
 
+# pyrefly: ignore [missing-import]
 from rest_framework.parsers import MultiPartParser, FormParser
 
 class ExecutiveLeaderViewSet(viewsets.ModelViewSet):
@@ -282,6 +293,7 @@ class EduSkillsMentorViewSet(viewsets.ModelViewSet):
     def download_template(self, request):
         """Download a CSV template for bulk upload"""
         import csv
+        # pyrefly: ignore [missing-import]
         from django.http import HttpResponse
         
         response = HttpResponse(content_type='text/csv')
